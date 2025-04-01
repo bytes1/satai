@@ -55,13 +55,26 @@ export const Sendcrypto = tool({
   execute: async function ({ address, amount }) {
     // Simulated API call
 
-    console.log(address, amount);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     return { address, amount };
+  },
+});
+
+export const Convertbtc = tool({
+  description: "function to convert btc to sbtc. when amount is given.",
+  parameters: z.object({
+    amount: z.string().describe("Amount of tokens need to deposit"),
+  }),
+  execute: async function ({ amount }) {
+    // Simulated API call
+
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    return { amount };
   },
 });
 
 export const tools = {
   cryptoToolPrice,
   Sendcrypto,
+  Convertbtc,
 };
