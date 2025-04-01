@@ -1,5 +1,7 @@
 # SatAI - Your AI Agent for sBTC
 
+[DEMO VIDEO](https://youtu.be/Ho-SpZ3ks9g) <br> <br>
+
 SatAI is an advanced AI agent designed to assist users with sBTC (Stacked Bitcoin) operations. You can connect your preferred wallet to SatAI, enabling seamless interaction with sBTC—just like chatting with a bot. Whether you need to transfer sBTC, check cryptocurrency prices, or analyze sBTC transactions, SatAI makes it effortless.
 
 ## Why SatAI?
