@@ -23,6 +23,34 @@ SatAI will handle the entire transaction setup, preparing all the necessary deta
 - **Bitcoin Layer Integration** – Direct interaction with Bitcoin liquidity via Stacks smart contracts.
 - **Secure & Trustless** – Leverages Stacks' decentralized architecture for secure transactions.
 
+## How It Works in Practice
+
+Using SatAI is designed to be intuitive:
+
+1.  **Connect Your Wallet:** First, connect your preferred Stacks-compatible wallet to the SatAI application. This authorizes SatAI to prepare transactions on your behalf. (Future versions will include an inbuilt wallet option).
+2.  **Chat with the AI:** Interact with the chatbot using plain English (natural language) to access sBTC features and information linked to your connected wallet.
+
+**Examples:**
+
+- Need a price check? Just ask:
+
+  > _What's the current price of BTC?_
+  > (SatAI fetches the latest price, potentially using sources like CoinMarketCap).
+
+- Have questions about the ecosystem?
+
+  > _Explain how sBTC pegging works._
+  > (SatAI can provide information and answer doubts related to Stacks and sBTC).
+
+- Want to perform an action?
+
+  > _Convert 1 BTC to sBTC._
+  > (SatAI initiates the conversion process based on your command, simplifying the multi-step procedure into a single interaction, although full implementation is planned for the future).
+
+- Sending funds:
+  > _Send 0.5 sBTC to wallet address [address]._
+  > (SatAI sets up the transaction for your confirmation).
+
 ## Technical Architecture
 
 SatAI is built on a robust foundation that combines AI language models with blockchain technology:
