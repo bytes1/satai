@@ -4,6 +4,8 @@ import type { Message } from "ai";
 import { Crypto } from "./cryptoprice";
 import { Cryptosend } from "./sendcrypto";
 import { Depositbtc } from "./depositbtc";
+import { Sendstx } from "./sendstx";
+
 export default function Message({ message }: { message: Message }) {
   return (
     <div
@@ -27,16 +29,41 @@ export default function Message({ message }: { message: Message }) {
           } else if (toolName === "Convertbtc") {
             console.log("deposit btc triggered");
             return <Depositbtc key={toolCallId} {...tool.result} />;
+          } else if (toolName === "Sendstx") {
+            console.log("send stx triggered");
+            return <Sendstx key={toolCallId} {...tool.result} />;
           }
         } else {
           if (toolName === "cryptoToolPrice") {
-            return <div>Loading Coin price...</div>;
+            return (
+              <div key={toolCallId} className="text-sm text-yellow-400">
+                Loading Coin price...
+              </div>
+            );
           } else if (toolName === "Sendcrypto") {
-            return <div>Transaction processing</div>;
+            return (
+              <div key={toolCallId} className="text-sm text-yellow-400">
+                Transaction processing...
+              </div>
+            );
           } else if (toolName === "Convertbtc") {
-            return <div>Transaction processing</div>;
+            return (
+              <div key={toolCallId} className="text-sm text-yellow-400">
+                Transaction processing...
+              </div>
+            );
+          } else if (toolName === "Sendstx") {
+            console.log("send stx triggered");
+            return (
+              <div key={toolCallId} className="text-sm text-yellow-400">
+                Transaction processing...
+              </div>
+            );
           }
         }
+
+        // Fallback if no matching condition
+        return null;
       })}
     </div>
   );

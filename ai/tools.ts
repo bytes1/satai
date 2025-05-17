@@ -73,8 +73,26 @@ export const Convertbtc = tool({
   },
 });
 
+export const Sendstx = tool({
+  description:
+    "function to send crypto when address(crypto address) and amount is given. then only execute this when send stx",
+  parameters: z.object({
+    address: z
+      .string()
+      .describe("the blockchain address of person. token need to send"),
+    amount: z.string().describe("Amount of tokens need to send"),
+  }),
+  execute: async function ({ address, amount }) {
+    // Simulated API call
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    return { address, amount };
+  },
+});
+
 export const tools = {
   cryptoToolPrice,
   Sendcrypto,
   Convertbtc,
+  Sendstx,
 };
