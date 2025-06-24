@@ -93,3 +93,20 @@ pnpm install  # or npm install
 ```sh
 pnpm run dev  # or npm run dev
 ```
+
+## 🆕 New Features
+
+### ✅ STX Transfer Support
+
+- Enables sending STX tokens to any valid Stacks address.
+- Supports natural language command parsing (e.g., _"Send 1 STX to address"_).
+- Handles:
+  - Address validation
+  - Amount formatting
+  - Transaction submission
+
+### ✅ SBTC Balance Fetching
+
+- Allows fetching of SBTC token balances from the blockchain.
+- Queries the SBTC smart contract and returns the correct on-chain balance for a given address.
+- Can be used in dashboards, wallets, or automated agents.
