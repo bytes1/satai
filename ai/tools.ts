@@ -89,6 +89,16 @@ export const Sendstx = tool({
     return { address, amount };
   },
 });
+export const getSbtcbalance = tool({
+  description:
+    "function to  get sbtc balance of user. call when sbtc balance is asked",
+  parameters: z.object({
+    address: z
+      .string()
+      .describe("address of wallet token balance need to fetch"),
+  }),
+  execute: async function ({ address }) {},
+});
 
 export const tools = {
   cryptoToolPrice,
