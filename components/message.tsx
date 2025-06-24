@@ -5,7 +5,7 @@ import { Crypto } from "./cryptoprice";
 import { Cryptosend } from "./sendcrypto";
 import { Depositbtc } from "./depositbtc";
 import { Sendstx } from "./sendstx";
-
+import { Sbtcbalance } from "./sbtcbalance";
 export default function Message({ message }: { message: Message }) {
   return (
     <div
@@ -32,6 +32,8 @@ export default function Message({ message }: { message: Message }) {
           } else if (toolName === "Sendstx") {
             console.log("send stx triggered");
             return <Sendstx key={toolCallId} {...tool.result} />;
+          } else if (toolName === "getSbtcbalance") {
+            return <Sbtcbalance key={toolCallId} {...tool.result} />;
           }
         } else {
           if (toolName === "cryptoToolPrice") {
@@ -57,6 +59,12 @@ export default function Message({ message }: { message: Message }) {
             return (
               <div key={toolCallId} className="text-sm text-yellow-400">
                 Transaction processing...
+              </div>
+            );
+          } else if (toolName === "getSbtcbalance") {
+            return (
+              <div key={toolCallId} className="text-sm text-yellow-400">
+                Balance Fetching...
               </div>
             );
           }
