@@ -97,7 +97,49 @@ export const getSbtcbalance = tool({
       .string()
       .describe("address of wallet token balance need to fetch"),
   }),
-  execute: async function ({ address }) {},
+  execute: async function ({ address }) {
+    let header = undefined;
+    if (process.env.HIRO_API_KEY) {
+      header = {
+        headers: {
+          "X-API-Key": process.env.HIRO_API_KEY,
+        },
+      };
+    }
+    const targetPath = `https://api.hiro.so/extended/v1/address/${address}/balances`;
+    try {
+      const { data } = await axios.get(targetPath, header);
+      const fungibleTokens = data.fungible_tokens;
+      let balances = "";
+      // Return the balance for the account
+      for (const tokenName in fungibleTokens) {
+        const token = fungibleTokens[tokenName];
+        const tokenComponents = tokenName.split("::");
+        const contract = tokenComponents[0].split(".");
+        const contractId = contract[0];
+        const contractName = contract[1];
+        const decimalResult = await fetchCallReadOnlyFunction({
+          contractName: contractName,
+          contractAddress: contractId,
+          functionName: "get-decimals",
+          functionArgs: [],
+          senderAddress: address,
+          network: "testnet",
+        });
+        const symbolResult = await fetchCallReadOnlyFunction({
+          contractName: contractName,
+          contractAddress: contractId,
+          functionName: "get-symbol",
+          functionArgs: [],
+          senderAddress: address,
+          network: "testnet",
+        });
+      }
+      return balances;
+    } catch (error) {
+      throw error;
+    }
+  },
 });
 
 export const tools = {
