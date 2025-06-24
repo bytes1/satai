@@ -118,22 +118,6 @@ export const getSbtcbalance = tool({
         const contract = tokenComponents[0].split(".");
         const contractId = contract[0];
         const contractName = contract[1];
-        const decimalResult = await fetchCallReadOnlyFunction({
-          contractName: contractName,
-          contractAddress: contractId,
-          functionName: "get-decimals",
-          functionArgs: [],
-          senderAddress: address,
-          network: "testnet",
-        });
-        const symbolResult = await fetchCallReadOnlyFunction({
-          contractName: contractName,
-          contractAddress: contractId,
-          functionName: "get-symbol",
-          functionArgs: [],
-          senderAddress: address,
-          network: "testnet",
-        });
       }
       return balances;
     } catch (error) {
