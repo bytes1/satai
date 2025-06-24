@@ -1,4 +1,3 @@
-import { togetherai } from "@ai-sdk/togetherai";
 import { streamText } from "ai";
 import { tools } from "../../../ai/tools";
 import { google } from "@ai-sdk/google";
