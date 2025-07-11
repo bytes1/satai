@@ -1,5 +1,8 @@
-import { streamText } from "ai";
-import { tools } from "../../../ai/tools";
+import {
+  streamText,
+  experimental_createMCPClient as createMcpClient,
+} from "ai";
+import { tools as localTools } from "../../../ai/tools";
 import { google } from "@ai-sdk/google";
 export const maxDuration = 30;
 
@@ -7,6 +10,18 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
   console.log("message:", messages);
   try {
+    const mcpClient = await createMcpClient({
+      transport: {
+        type: "sse",
+        url: "https://mcp.api.coingecko.com/sse",
+      },
+    });
+    const mcpTools = await mcpClient.tools();
+
+    const tools = {
+      ...localTools, // existing tools (send crypto, get balance, etc.)
+      ...mcpTools, // The new tools from CoinGecko
+    };
     const result = streamText({
       model: google("gemini-1.5-pro-latest"),
       system: `You are SatAI, an AI assistant designed to help users interact with sBTC. Your main tasks include assisting users in transferring sBTC, checking cryptocurrency prices, analyzing sBTC transactions, and providing insights into their blockchain activity. You respond in a natural, conversational manner and simplify complex blockchain operations.
