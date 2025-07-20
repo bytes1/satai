@@ -240,7 +240,7 @@ export default function Message({ message }: { message: Message }) {
                     )}
                     {toolName === "Sendstx" && <Sendstx {...tool.result} />}
                     {toolName === "getSbtcbalance" && (
-                      <Sbtcbalance {...tool.result} />
+                      <Sbtcbalance balances={tool.result} />
                     )}
                     {toolName === "cryptoHistoricalPrice" && (
                       <CryptoPriceHistory {...tool.result} />
