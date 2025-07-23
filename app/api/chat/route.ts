@@ -1,29 +1,43 @@
-import {
-  streamText,
-  experimental_createMCPClient as createMcpClient,
-} from "ai";
-import { tools as localTools } from "../../../ai/tools";
+import { togetherai } from "@ai-sdk/togetherai";
+import { streamText } from "ai";
+import { tools as localTools } from "../../../ai";
 import { google } from "@ai-sdk/google";
+import { experimental_createMCPClient as createMcpClient } from "ai";
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
   console.log("message:", messages);
   try {
+    // --- MCP Integration Start ---
+
+    const apiKey = process.env.COINGECKO_API_KEY;
+
+    if (!apiKey) {
+      throw new Error("COINGECKO_API_KEY environment variable is required");
+    }
+
+    // 1. Create the MCP client by connecting directly to the remote SSE URL.
+    // This is more efficient than using the mcp-remote proxy.
     const mcpClient = await createMcpClient({
       transport: {
         type: "sse",
         url: "https://mcp.api.coingecko.com/sse",
+        headers: {
+          x_cg_demo_api_key: apiKey,
+          "Content-Type": "application/json",
+        },
       },
     });
     const mcpTools = await mcpClient.tools();
 
     const tools = {
-      ...localTools, // existing tools (send crypto, get balance, etc.)
+      ...localTools, // Your existing tools (send crypto, get balance, etc.)
       ...mcpTools, // The new tools from CoinGecko
     };
+
     const result = streamText({
-      model: google("gemini-1.5-pro-latest"),
+      model: google("gemini-2.0-flash"),
       system: `You are SatAI, an AI assistant designed to help users interact with sBTC. Your main tasks include assisting users in transferring sBTC, checking cryptocurrency prices, analyzing sBTC transactions, and providing insights into their blockchain activity. You respond in a natural, conversational manner and simplify complex blockchain operations.
 Your goal is to make sBTC and blockchain technology accessible to everyone, regardless of their technical background. You will assist the user with tasks like:
 Sending and receiving sBTC by accepting natural language commands like “Send 1 sBTC to [address].”
