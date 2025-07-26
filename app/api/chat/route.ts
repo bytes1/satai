@@ -1,64 +1,39 @@
-import { togetherai } from "@ai-sdk/togetherai";
-import { streamText } from "ai";
-import { tools as localTools } from "../../../ai";
-import { google } from "@ai-sdk/google";
-import { experimental_createMCPClient as createMcpClient } from "ai";
+/**
+ * @file This file defines the API route for handling POST requests to the AI chat endpoint.
+ * It acts as a controller, delegating the core logic to service files.
+ */
+
+import { handleAiStream } from "../../../lib/ai-handler"; // Adjust path based on your project structure
+
+// -----------------------------------------------------------------------------
+// Route Configuration
+// -----------------------------------------------------------------------------
+
 export const maxDuration = 30;
 
+// -----------------------------------------------------------------------------
+// API Handler
+// -----------------------------------------------------------------------------
+
+/**
+ * Handles the POST request to the chat API endpoint.
+ * @param {Request} req - The incoming HTTP request object.
+ * @returns {Response} A streaming response with the AI's output or an error message.
+ */
 export async function POST(req: Request) {
-  const { messages } = await req.json();
-  console.log("message:", messages);
   try {
-    // --- MCP Integration Start ---
+    const { messages } = await req.json();
+    console.log("Received messages:", messages);
 
-    const apiKey = process.env.COINGECKO_API_KEY;
-
-    if (!apiKey) {
-      throw new Error("COINGECKO_API_KEY environment variable is required");
-    }
-
-    // 1. Create the MCP client by connecting directly to the remote SSE URL.
-    // This is more efficient than using the mcp-remote proxy.
-    const mcpClient = await createMcpClient({
-      transport: {
-        type: "sse",
-        url: "https://mcp.api.coingecko.com/sse",
-        headers: {
-          x_cg_demo_api_key: apiKey,
-          "Content-Type": "application/json",
-        },
-      },
-    });
-    const mcpTools = await mcpClient.tools();
-
-    const tools = {
-      ...localTools, // Your existing tools (send crypto, get balance, etc.)
-      ...mcpTools, // The new tools from CoinGecko
-    };
-
-    const result = streamText({
-      model: google("gemini-2.0-flash"),
-      system: `You are SatAI, an AI assistant designed to help users interact with sBTC. Your main tasks include assisting users in transferring sBTC, checking cryptocurrency prices, analyzing sBTC transactions, and providing insights into their blockchain activity. You respond in a natural, conversational manner and simplify complex blockchain operations.
-Your goal is to make sBTC and blockchain technology accessible to everyone, regardless of their technical background. You will assist the user with tasks like:
-Sending and receiving sBTC by accepting natural language commands like “Send 1 sBTC to [address].”
-Providing real-time price data for cryptocurrencies.
-Analyzing sBTC transactions and providing insights.
-Offering general support and guidance regarding the blockchain and sBTC.
-Always ensure that you:
-Prompt for confirmations before any transactions.
-Ensure the security of transactions by only asking for confirmation after the user has reviewed transaction details.
-Maintain clarity and simplicity in your responses to keep the process intuitive for non-technical users.
-Remember: You are a helpful assistant, ensuring that the user's interaction with blockchain technology is as easy as possible. Aim to always provide the necessary information and facilitate smooth, seamless transactions.`,
-      messages,
-      tools,
-    });
-
-    console.log("result:", result.toDataStreamResponse());
+    const result = await handleAiStream(messages);
 
     return result.toDataStreamResponse();
   } catch (error) {
-    console.error("Error streaming text:", error);
-    return new Response(JSON.stringify({ error: "An error occurred." }), {
+    // --- Error Handling ---
+    console.error("Error in POST handler:", error);
+    const errorMessage =
+      error instanceof Error ? error.message : "An unknown error occurred.";
+    return new Response(JSON.stringify({ error: errorMessage }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
