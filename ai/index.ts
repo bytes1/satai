@@ -2,6 +2,8 @@ import { cryptoToolPrice } from "./cryptoPrice";
 import { Sendcrypto, Sendstx, Convertbtc } from "./cryptoTransactions";
 import { getSbtcbalance } from "./cryptoBalances";
 import { cryptoHistoricalPrice } from "./cryptoHistorical";
+import { getTransactionAnalysis } from "./transactionHash";
+import { getNftGallery } from "./nftGallery";
 
 export const tools = {
   cryptoToolPrice,
@@ -10,4 +12,6 @@ export const tools = {
   Sendstx,
   getSbtcbalance,
   cryptoHistoricalPrice,
+  getTransactionAnalysis,
+  getNftGallery,
 };

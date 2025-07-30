@@ -3,7 +3,7 @@
  * It acts as a controller, delegating the core logic to service files.
  */
 
-import { handleAiStream } from "../../../lib/ai-handler"; // Adjust path based on your project structure
+import { handleAiStream } from "../../../lib/ai-handler";
 
 // -----------------------------------------------------------------------------
 // Route Configuration

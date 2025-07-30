@@ -6,8 +6,10 @@ import { Crypto } from "./cryptoprice";
 import { Cryptosend } from "./sendcrypto";
 import { Depositbtc } from "./depositbtc";
 import { Sendstx } from "./sendstx";
-import { Sbtcbalance } from "./sbtcbalance";
+import { SbtcBalance } from "./sbtcbalance";
 import { CryptoPriceHistory } from "./CryptoPriceHistory";
+import { TransactionAnalysis } from "./TxAnalysis";
+import { NftGallery } from "./NftGallery";
 
 // Enhanced Avatar Component
 const Avatar = ({
@@ -225,7 +227,7 @@ export default function Message({ message }: { message: Message }) {
           <div className="space-y-3">
             {message.toolInvocations?.map((tool) => {
               const { toolName, toolCallId, state } = tool;
-
+              console.log("tool", tool);
               if (state === "result") {
                 return (
                   <div key={toolCallId} className="animate-fadeIn">
@@ -240,10 +242,16 @@ export default function Message({ message }: { message: Message }) {
                     )}
                     {toolName === "Sendstx" && <Sendstx {...tool.result} />}
                     {toolName === "getSbtcbalance" && (
-                      <Sbtcbalance balances={tool.result} />
+                      <SbtcBalance balances={tool.result} />
                     )}
                     {toolName === "cryptoHistoricalPrice" && (
                       <CryptoPriceHistory {...tool.result} />
+                    )}
+                    {toolName === "getTransactionAnalysis" && (
+                      <TransactionAnalysis {...tool.result} />
+                    )}
+                    {toolName === "getNftGallery" && (
+                      <NftGallery nfts={tool.result.nfts} />
                     )}
                   </div>
                 );
@@ -256,6 +264,8 @@ export default function Message({ message }: { message: Message }) {
                   Sendstx: "Processing STX transaction",
                   getSbtcbalance: "Fetching balance",
                   cryptoHistoricalPrice: "Fetching price history",
+                  getTransactionAnalysis: "Analyzing transaction",
+                  getNftGallery: "Fetching your NFTs",
                 };
 
                 return (
