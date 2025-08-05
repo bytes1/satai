@@ -4,6 +4,8 @@ import { getSbtcbalance } from "./cryptoBalances";
 import { cryptoHistoricalPrice } from "./cryptoHistorical";
 import { getTransactionAnalysis } from "./transactionHash";
 import { getNftGallery } from "./nftGallery";
+import { getMempoolData } from "./mempool";
+import { getContractSource } from "./contractSource";
 
 export const tools = {
   cryptoToolPrice,
@@ -14,4 +16,6 @@ export const tools = {
   cryptoHistoricalPrice,
   getTransactionAnalysis,
   getNftGallery,
+  getMempoolData,
+  getContractSource,
 };

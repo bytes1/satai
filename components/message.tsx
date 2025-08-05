@@ -253,6 +253,16 @@ export default function Message({ message }: { message: Message }) {
                     {toolName === "getNftGallery" && (
                       <NftGallery nfts={tool.result.nfts} />
                     )}
+                    {toolName === "getMempoolData" && (
+                      <MempoolData {...tool.result} />
+                    )}
+                    {toolName === "getContractSource" && (
+                      <ContractSource
+                        {...tool.result}
+                        contract_address={tool.args.contract_address}
+                        contract_name={tool.args.contract_name}
+                      />
+                    )}
                   </div>
                 );
               } else {
