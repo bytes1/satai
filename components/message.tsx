@@ -10,6 +10,7 @@ import { SbtcBalance } from "./sbtcbalance";
 import { CryptoPriceHistory } from "./CryptoPriceHistory";
 import { TransactionAnalysis } from "./TxAnalysis";
 import { NftGallery } from "./NftGallery";
+import { RecentTransactions } from "./RecentTransactions";
 
 // Enhanced Avatar Component
 const Avatar = ({
@@ -263,6 +264,11 @@ export default function Message({ message }: { message: Message }) {
                         contract_name={tool.args.contract_name}
                       />
                     )}
+                    {toolName === "getRecentTransactions" && (
+                      <RecentTransactions
+                        transactions={tool.result.transactions}
+                      />
+                    )}
                   </div>
                 );
               } else {
@@ -276,6 +282,7 @@ export default function Message({ message }: { message: Message }) {
                   cryptoHistoricalPrice: "Fetching price history",
                   getTransactionAnalysis: "Analyzing transaction",
                   getNftGallery: "Fetching your NFTs",
+                  getRecentTransactions: "Fetching recent transactions",
                 };
 
                 return (

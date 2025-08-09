@@ -1,78 +1,63 @@
-# SatAI - Your AI Agent for sBTC
+# SatAI - Your AI Agent for sBTC & Stacks
 
-[DEMO VIDEO](https://youtu.be/Ho-SpZ3ks9g) <br> <br>
+[**DEMO VIDEO**](https://youtu.be/Ho-SpZ3ks9g)
 
-SatAI is an advanced AI agent designed to assist users with sBTC (Stacked Bitcoin) operations. You can connect your preferred wallet to SatAI, enabling seamless interaction with sBTC—just like chatting with a bot. Whether you need to transfer sBTC, check cryptocurrency prices, or analyze sBTC transactions, SatAI makes it effortless.
+SatAI is an advanced AI agent designed to simplify your interaction with the Stacks blockchain and the broader Bitcoin ecosystem. By connecting your wallet, you can perform a wide range of on-chain actions—from simple transfers to in-depth blockchain analysis—all through a natural, conversational chat interface.
 
 ## Why SatAI?
 
-In the crypto space, most users have a technical background or some level of blockchain knowledge. However, blockchain is a technology that has the potential to create a great impact on society, and it is already making strides in that direction. To truly unlock its potential, we need to make blockchain accessible to everyone, removing technical barriers and making it easy to use.
+The world of crypto can be intimidating for newcomers. SatAI's mission is to break down these barriers. We believe that blockchain technology should be accessible to everyone, regardless of their technical background.
 
-The first step toward this goal is ensuring that even non-technical users can onboard to blockchain seamlessly. Currently, SatAI depends on external wallets for interaction. For example, if a user wants to send 1 sBTC to another user, they can simply type a natural language command like:
-
-> _Send 1 sBTC to this address._
-
-SatAI will handle the entire transaction setup, preparing all the necessary details, and the user only needs to confirm the transaction. This makes interacting with sBTC as simple as chatting with a friend.
+SatAI transforms complex blockchain operations into simple chat commands. Want to send crypto? Just type "Send 1 STX to this address." Curious about a transaction? Ask "Analyze this transaction hash for me." SatAI handles the technical details, so you only need to confirm the action. It's as easy as talking to a friend.
 
 ## Features
 
-- **Wallet Connection** – Easily connect your preferred wallet to start interacting with sBTC.
-- **sBTC Transfers** – Send and receive sBTC through a simple chat interface.
-- **Crypto Price Lookup** – Get real-time price updates for various cryptocurrencies.
-- **sBTC Analysis** – Perform transaction analysis and gain insights into your sBTC activity.
-- **Bitcoin Layer Integration** – Direct interaction with Bitcoin liquidity via Stacks smart contracts.
-- **Secure & Trustless** – Leverages Stacks' decentralized architecture for secure transactions.
+SatAI is more than just a wallet—it's a comprehensive toolkit for navigating the Stacks ecosystem.
+
+- **Wallet Connection**: Securely connect your preferred Stacks wallet to get started.
+- **Token Transfers**: Send sBTC and STX tokens using simple, natural language commands.
+- **Crypto Price Data**: Get real-time and historical price data for various cryptocurrencies.
+- **Token Balance Checker**: Instantly check the balance of all your fungible tokens.
+- **NFT Gallery**: View all your Ordinal NFTs in a clean, visually appealing gallery.
+- **Advanced Blockchain Explorer Tools**:
+  - **Transaction Analysis**: Get a detailed breakdown of any transaction on the Stacks blockchain by providing its hash.
+  - **Live Mempool Data**: See the current state of the network, including pending transactions and fee estimates.
+  - **Smart Contract Inspector**: View the source code and inspect the data maps of any smart contract.
 
 ## How It Works in Practice
 
-Using SatAI is designed to be intuitive:
+Using SatAI is designed to be intuitive and conversational.
 
-1.  **Connect Your Wallet:** First, connect your preferred Stacks-compatible wallet to the SatAI application. This authorizes SatAI to prepare transactions on your behalf. (Future versions will include an inbuilt wallet option).
-2.  **Chat with the AI:** Interact with the chatbot using plain English (natural language) to access sBTC features and information linked to your connected wallet.
+1.  **Connect Your Wallet**: Link your Stacks-compatible wallet to authorize SatAI to prepare transactions on your behalf.
+2.  **Chat with the AI**: Use plain English to ask questions and give commands.
 
 **Examples:**
 
-- Need a price check? Just ask:
-
-  > _What's the current price of BTC?_
-  > (SatAI fetches the latest price, potentially using sources like CoinMarketCap).
-
-- Have questions about the ecosystem?
-
-  > _Explain how sBTC pegging works._
-  > (SatAI can provide information and answer doubts related to Stacks and sBTC).
-
-- Want to perform an action?
-
-  > _Convert 1 BTC to sBTC._
-  > (SatAI initiates the conversion process based on your command, simplifying the multi-step procedure into a single interaction, although full implementation is planned for the future).
-
-- Sending funds:
-  > _Send 0.5 sBTC to wallet address [address]._
-  > (SatAI sets up the transaction for your confirmation).
+- **Check your assets**:
+  > _"Show me my token balances."_ > _"Display my NFT gallery."_
+- **Get market info**:
+  > _"What's the current price of BTC?"_ > _"Show me the price history of STX for the last 30 days."_
+- **Perform transactions**:
+  > _"Send 0.5 sBTC to wallet address [address]."_
+- **Analyze the blockchain**:
+  > _"Analyze transaction hash [hash]."_ > _"What's the current mempool status?"_ > _"Show me the source code for the 'sbtc-token' contract at address [address]."_
 
 ## Technical Architecture
 
 SatAI is built on a robust foundation that combines AI language models with blockchain technology:
 
-- **AI Engine**: Powered by advanced language models to understand and process natural language inputs
-- **Blockchain Interface**: Direct integration with Stacks blockchain and sBTC protocols
-- **Wallet Connectors**: Support for multiple wallet providers including Hiro Wallet, Xverse, and others
-- **API Layer**: Real-time data retrieval from cryptocurrency markets and blockchain explorers
-- **Security Layer**: End-to-end encryption and zero knowledge of private keys
+- **AI Engine**: Powered by advanced language models to understand and process natural language inputs.
+- **Blockchain Interface**: Direct integration with the **Hiro API** for comprehensive access to Stacks blockchain data, including transactions, smart contracts, NFTs, and more.
+- **Wallet Connectors**: Support for multiple wallet providers.
+- **API Layer**: Real-time data retrieval from cryptocurrency markets and blockchain explorers.
+- **Security Layer**: End-to-end encryption and zero knowledge of private keys.
 
-Currently, two API models are integrated into Satai: TogetherAI and Google Gemini. Initially, some issues were encountered while using TogetherAI, so Gemini was also integrated. However, Gemini has some rate limit issues.
+## Roadmap
 
-Below is the roadmap outlining my planned integrations with SatAI.
-
-- **Inbuilt Smart Wallet:** Transitioning beyond external wallet dependency by integrating a dedicated, user-friendly smart wallet directly within SatAI. This will significantly streamline the onboarding process for all users, especially those new to blockchain.
-- **sBTC Application Hub:** Integrating multiple sBTC-related applications (DeFi protocols, marketplaces, etc.) directly into SatAI. Users will be able to interact with these external applications using natural language commands through SatAI, eliminating the need to switch between different interfaces.
-- **DeFi Strategy Implementation:** Enabling users to discover, understand, and potentially execute various DeFi strategies involving sBTC directly via the SatAI interface.
-- **Complete BTC-to-sBTC Conversion:** Fully implementing and simplifying the process for converting native Bitcoin (BTC) into sBTC within the agent, making it easier to bring Bitcoin liquidity onto the Stacks layer.
-- **Expanded External Wallet Support:** Alongside the inbuilt wallet, we will continue to add support for a wider range of popular Stacks and Bitcoin wallets.
-- **Advanced Analytics & Portfolio Management:** Introducing tools for deeper transaction insights, portfolio performance tracking, and yield opportunity identification.
-- **Improved Natural Language Understanding:** Continuously refining the AI model to understand more complex queries and execute multi-step operations across integrated applications.
-- **Mobile Accessibility:** Developing dedicated mobile applications for on-the-go access to SatAI.
+- **Inbuilt Smart Wallet**: Integrating a dedicated, user-friendly smart wallet directly within SatAI.
+- **sBTC Application Hub**: Integrating multiple sBTC-related applications (DeFi, marketplaces, etc.) directly into SatAI.
+- **DeFi Strategy Implementation**: Enabling users to discover and execute DeFi strategies involving sBTC.
+- **Advanced Analytics & Portfolio Management**: Introducing tools for deeper transaction insights and portfolio performance tracking.
 
 ## Getting Started
 
@@ -93,20 +78,3 @@ pnpm install  # or npm install
 ```sh
 pnpm run dev  # or npm run dev
 ```
-
-## 🆕 New Features
-
-### ✅ STX Transfer Support
-
-- Enables sending STX tokens to any valid Stacks address.
-- Supports natural language command parsing (e.g., _"Send 1 STX to address"_).
-- Handles:
-  - Address validation
-  - Amount formatting
-  - Transaction submission
-
-### ✅ SBTC Balance Fetching
-
-- Allows fetching of SBTC token balances from the blockchain.
-- Queries the SBTC smart contract and returns the correct on-chain balance for a given address.
-- Can be used in dashboards, wallets, or automated agents.
