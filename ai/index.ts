@@ -6,7 +6,9 @@ import { getTransactionAnalysis } from "./transactionHash";
 import { getNftGallery } from "./nftGallery";
 import { getMempoolData } from "./mempool";
 import { getContractSource } from "./contractSource";
-import { getRecentTransactions } from "./recentTransactions"; // Import the new tool
+import { getRecentTransactions } from "./recentTransactions";
+import { getTokenMetadata } from "./tokenMetadata";
+import { getBnsName } from "./bnsName";
 
 export const tools = {
   cryptoToolPrice,
@@ -20,4 +22,6 @@ export const tools = {
   getMempoolData,
   getContractSource,
   getRecentTransactions,
+  getTokenMetadata,
+  getBnsName,
 };

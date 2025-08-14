@@ -10,7 +10,11 @@ import { SbtcBalance } from "./sbtcbalance";
 import { CryptoPriceHistory } from "./CryptoPriceHistory";
 import { TransactionAnalysis } from "./TxAnalysis";
 import { NftGallery } from "./NftGallery";
+import { MempoolData } from "./MempoolData";
+import { ContractSource } from "./ContractSource";
 import { RecentTransactions } from "./RecentTransactions";
+import { TokenMetadata } from "./TokenMetadata";
+import { BnsName } from "./BnsName";
 
 // Enhanced Avatar Component
 const Avatar = ({
@@ -269,6 +273,10 @@ export default function Message({ message }: { message: Message }) {
                         transactions={tool.result.transactions}
                       />
                     )}
+                    {toolName === "getTokenMetadata" && (
+                      <TokenMetadata {...tool.result} />
+                    )}
+                    {toolName === "getBnsName" && <BnsName {...tool.result} />}
                   </div>
                 );
               } else {
@@ -282,7 +290,11 @@ export default function Message({ message }: { message: Message }) {
                   cryptoHistoricalPrice: "Fetching price history",
                   getTransactionAnalysis: "Analyzing transaction",
                   getNftGallery: "Fetching your NFTs",
+                  getMempoolData: "Fetching mempool data",
+                  getContractSource: "Fetching contract source",
                   getRecentTransactions: "Fetching recent transactions",
+                  getTokenMetadata: "Fetching token metadata",
+                  getBnsName: "Resolving BNS name",
                 };
 
                 return (

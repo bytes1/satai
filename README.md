@@ -48,6 +48,7 @@ SatAI is built on a robust foundation that combines AI language models with bloc
 
 - **AI Engine**: Powered by advanced language models to understand and process natural language inputs.
 - **Blockchain Interface**: Direct integration with the **Hiro API** for comprehensive access to Stacks blockchain data, including transactions, smart contracts, NFTs, and more.
+- **CoinGecko MCP Integration**: Real-time cryptocurrency price data is fetched through the **CoinGecko MCP client**, ensuring up-to-date market information.
 - **Wallet Connectors**: Support for multiple wallet providers.
 - **API Layer**: Real-time data retrieval from cryptocurrency markets and blockchain explorers.
 - **Security Layer**: End-to-end encryption and zero knowledge of private keys.
@@ -71,10 +72,3 @@ SatAI is built on a robust foundation that combines AI language models with bloc
 
 ```sh
 pnpm install  # or npm install
-```
-
-### Running the Project
-
-```sh
-pnpm run dev  # or npm run dev
-```
