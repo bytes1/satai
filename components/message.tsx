@@ -15,6 +15,8 @@ import { ContractSource } from "./ContractSource";
 import { RecentTransactions } from "./RecentTransactions";
 import { TokenMetadata } from "./TokenMetadata";
 import { BnsName } from "./BnsName";
+import { PoxInfo } from "./PoxInfo";
+import { ContractInterface } from "./ContractInterface";
 
 // Enhanced Avatar Component
 const Avatar = ({
@@ -277,6 +279,10 @@ export default function Message({ message }: { message: Message }) {
                       <TokenMetadata {...tool.result} />
                     )}
                     {toolName === "getBnsName" && <BnsName {...tool.result} />}
+                    {toolName === "getPoxInfo" && <PoxInfo {...tool.result} />}
+                    {toolName === "getContractInterface" && (
+                      <ContractInterface {...tool.result} />
+                    )}
                   </div>
                 );
               } else {
@@ -295,6 +301,8 @@ export default function Message({ message }: { message: Message }) {
                   getRecentTransactions: "Fetching recent transactions",
                   getTokenMetadata: "Fetching token metadata",
                   getBnsName: "Resolving BNS name",
+                  getPoxInfo: "Fetching Stacking info",
+                  getContractInterface: "Fetching contract interface",
                 };
 
                 return (

@@ -9,6 +9,7 @@ import { getContractSource } from "./contractSource";
 import { getRecentTransactions } from "./recentTransactions";
 import { getTokenMetadata } from "./tokenMetadata";
 import { getBnsName } from "./bnsName";
+import { getContractInterface } from "./contractInterface";
 
 export const tools = {
   cryptoToolPrice,
@@ -24,4 +25,5 @@ export const tools = {
   getRecentTransactions,
   getTokenMetadata,
   getBnsName,
+  getContractInterface,
 };
