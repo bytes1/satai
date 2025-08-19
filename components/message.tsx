@@ -17,6 +17,8 @@ import { TokenMetadata } from "./TokenMetadata";
 import { BnsName } from "./BnsName";
 import { PoxInfo } from "./PoxInfo";
 import { ContractInterface } from "./ContractInterface";
+import { StxSupply } from "./StxSupply";
+import { BlockInfo } from "./BlockInfo";
 
 // Enhanced Avatar Component
 const Avatar = ({
@@ -283,6 +285,12 @@ export default function Message({ message }: { message: Message }) {
                     {toolName === "getContractInterface" && (
                       <ContractInterface {...tool.result} />
                     )}
+                    {toolName === "getStxSupply" && (
+                      <StxSupply {...tool.result} />
+                    )}
+                    {toolName === "getBlockInfo" && (
+                      <BlockInfo {...tool.result} />
+                    )}
                   </div>
                 );
               } else {
@@ -303,6 +311,8 @@ export default function Message({ message }: { message: Message }) {
                   getBnsName: "Resolving BNS name",
                   getPoxInfo: "Fetching Stacking info",
                   getContractInterface: "Fetching contract interface",
+                  getStxSupply: "Fetching STX supply",
+                  getBlockInfo: "Fetching block information",
                 };
 
                 return (
