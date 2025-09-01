@@ -36,9 +36,9 @@ export default function Home() {
 
   // --- Placeholder Data --- (add this feature)
   const chatHistory = [
-    { id: 1, title: "Explaining ERC-721 Tokens" },
-    { id: 2, title: "History of Bitcoin Halving" },
-    { id: 3, title: "Smart Contract Ideas" },
+    { id: 1, title: "" },
+    { id: 2, title: "" },
+    { id: 3, title: "" },
   ];
 
   return (
@@ -57,7 +57,7 @@ export default function Home() {
             }
             className="w-4 h-4"
           />
-          New Chat
+          {/* New Chat */}
         </button>
         <div className="flex-1 overflow-y-auto space-y-2 [scrollbar-width:thin] [scrollbar-color:#4a5568_#2d3748]">
           <h2 className="text-sm font-semibold text-gray-500 tracking-wider mb-2">

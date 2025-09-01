@@ -1,74 +1,124 @@
-# SatAI - Your AI Agent for sBTC & Stacks
+# SatAI – Your AI Agent for sBTC & Stacks
 
-[**DEMO VIDEO**](https://youtu.be/Ho-SpZ3ks9g)
+[**DEMO VIDEO**](https://www.loom.com/share/520850bbbf2c49f0ae8b636f1dd02efe)
 
 SatAI is an advanced AI agent designed to simplify your interaction with the Stacks blockchain and the broader Bitcoin ecosystem. By connecting your wallet, you can perform a wide range of on-chain actions—from simple transfers to in-depth blockchain analysis—all through a natural, conversational chat interface.
 
-## Why SatAI?
+---
 
-The world of crypto can be intimidating for newcomers. SatAI's mission is to break down these barriers. We believe that blockchain technology should be accessible to everyone, regardless of their technical background.
+## ✨ Features
 
-SatAI transforms complex blockchain operations into simple chat commands. Want to send crypto? Just type "Send 1 STX to this address." Curious about a transaction? Ask "Analyze this transaction hash for me." SatAI handles the technical details, so you only need to confirm the action. It's as easy as talking to a friend.
+SatAI is more than just a wallet—it's a conversational toolkit for the Stacks + sBTC ecosystem.
 
-## Features
+### 🪙 Core Wallet Features
 
-SatAI is more than just a wallet—it's a comprehensive toolkit for navigating the Stacks ecosystem.
+- **Wallet Connection** – securely connect your Stacks-compatible wallet.
+- **Token Transfers** – send STX and sBTC with natural commands.
+- **Token Balance Checker** – check balances of all your fungible tokens.
+- **NFT Gallery** – display Ordinal NFTs and collectibles in a clean gallery.
 
-- **Wallet Connection**: Securely connect your preferred Stacks wallet to get started.
-- **Token Transfers**: Send sBTC and STX tokens using simple, natural language commands.
-- **Crypto Price Data**: Get real-time and historical price data for various cryptocurrencies.
-- **Token Balance Checker**: Instantly check the balance of all your fungible tokens.
-- **NFT Gallery**: View all your Ordinal NFTs in a clean, visually appealing gallery.
-- **Advanced Blockchain Explorer Tools**:
-  - **Transaction Analysis**: Get a detailed breakdown of any transaction on the Stacks blockchain by providing its hash.
-  - **Live Mempool Data**: See the current state of the network, including pending transactions and fee estimates.
-  - **Smart Contract Inspector**: View the source code and inspect the data maps of any smart contract.
+### 📊 Market Insights
 
-## How It Works in Practice
+- **Crypto Price Data** – fetch real-time and historical data.
+- **Coin Metadata** – get token name, symbol, description, and image via contract address.
 
-Using SatAI is designed to be intuitive and conversational.
+### 🔍 Blockchain Explorer Tools
 
-1.  **Connect Your Wallet**: Link your Stacks-compatible wallet to authorize SatAI to prepare transactions on your behalf.
-2.  **Chat with the AI**: Use plain English to ask questions and give commands.
+- **Transaction Analysis** – detailed breakdown of any transaction hash (status, fees, events).
+- **Recent Activity** – pull the latest transactions on the Stacks network.
+- **Mempool Data** – view pending transactions and fee estimates.
+- **Smart Contract Source Code Viewer** – fetch and inspect contract source code.
+- **Smart Contract ABI Viewer** – see all functions, variables, and maps in a readable format.
+
+---
+
+## 💡 How It Works
+
+1. **Connect Your Wallet** – authorize SatAI to prepare transactions on your behalf.
+2. **Chat with the AI** – use plain English commands.
 
 **Examples:**
 
-- **Check your assets**:
-  > _"Show me my token balances."_ > _"Display my NFT gallery."_
-- **Get market info**:
-  > _"What's the current price of BTC?"_ > _"Show me the price history of STX for the last 30 days."_
-- **Perform transactions**:
-  > _"Send 0.5 sBTC to wallet address [address]."_
-- **Analyze the blockchain**:
-  > _"Analyze transaction hash [hash]."_ > _"What's the current mempool status?"_ > _"Show me the source code for the 'sbtc-token' contract at address [address]."_
+- _"Send 1 STX to \[address]"_
+- _"Analyze transaction hash \[hash]"_
+- _"Show me the source code for the sbtc-token contract"_
+- _"Display my NFT gallery of \[address]"_
+- _"What's the ABI for \[contract address] \[contract name]?"_
 
-## Technical Architecture
+---
 
-SatAI is built on a robust foundation that combines AI language models with blockchain technology:
+## ⚙️ Technical Architecture
 
-- **AI Engine**: Powered by advanced language models to understand and process natural language inputs.
-- **Blockchain Interface**: Direct integration with the **Hiro API** for comprehensive access to Stacks blockchain data, including transactions, smart contracts, NFTs, and more.
-- **CoinGecko MCP Integration**: Real-time cryptocurrency price data is fetched through the **CoinGecko MCP client**, ensuring up-to-date market information.
-- **Wallet Connectors**: Support for multiple wallet providers.
-- **API Layer**: Real-time data retrieval from cryptocurrency markets and blockchain explorers.
-- **Security Layer**: End-to-end encryption and zero knowledge of private keys.
+- **AI Engine** – natural language processing via Google Generative AI.
+- **Blockchain Data** – powered by **Hiro API** for transactions, mempool, contracts, and NFTs.
+- **Market Data** – fetched via **CoinMarketCap** and **CoinGecko** APIs.
+- **Wallet Integration** – support for Stacks wallets via Wallet Connectors.
+- **Security Layer** – end-to-end encryption with zero access to private keys.
 
-## Roadmap
+---
 
-- **Inbuilt Smart Wallet**: Integrating a dedicated, user-friendly smart wallet directly within SatAI.
-- **sBTC Application Hub**: Integrating multiple sBTC-related applications (DeFi, marketplaces, etc.) directly into SatAI.
-- **DeFi Strategy Implementation**: Enabling users to discover and execute DeFi strategies involving sBTC.
-- **Advanced Analytics & Portfolio Management**: Introducing tools for deeper transaction insights and portfolio performance tracking.
+## 🔑 Environment Variables
 
-## Getting Started
+Create a `.env` file in the project root and add the following:
+
+```ini
+GOOGLE_GENERATIVE_AI_API_KEY=your_google_genai_api_key
+HIRO_API_KEY=your_hiro_api_key
+COINMARKETCAP_API_KEY=your_coinmarketcap_api_key
+COINGECKO_API_KEY=your_coingecko_api_key
+```
+
+- `GOOGLE_GENERATIVE_AI_API_KEY` → For processing natural language chat commands.
+- `HIRO_API_KEY` → For accessing Stacks blockchain data.
+- `COINMARKETCAP_API_KEY` → For fetching crypto market data.
+- `COINGECKO_API_KEY` → Alternative source for price and token metadata.
+
+---
+
+## 🛠️ Installation
 
 ### Prerequisites
 
-- Node.js (latest recommended version)
+- Node.js (latest LTS recommended)
 - pnpm or npm
 - Stacks Wallet
 
-### Installation
+### Steps
 
 ```sh
-pnpm install  # or npm install
+# Clone the repo
+git clone https://github.com/your-org/satai.git
+cd satai
+
+# Install dependencies
+pnpm install
+
+# Start development
+pnpm dev
+
+# Build for production
+pnpm build
+```
+
+---
+
+## 🚀 Roadmap
+
+- **Built-in Smart Wallet** – a native SatAI wallet.
+- **sBTC Application Hub** – integrate DeFi apps, marketplaces, and more.
+- **DeFi Strategy Engine** – discover and execute yield strategies.
+- **Portfolio Analytics** – deeper insights and performance tracking.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+- Fork the repo
+- Create a branch (`git checkout -b feature/amazing-feature`)
+- Commit changes (`git commit -m 'Add amazing feature'`)
+- Push (`git push origin feature/amazing-feature`)
+- Open a PR
+
+---
