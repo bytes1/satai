@@ -1,12 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 import Message from "@/components/message";
 import { useChat } from "@ai-sdk/react";
 import { useAuth } from "@/contexts/auth-context";
 
-// Helper for Icons (using inline SVG)
-const Icon = ({ path, className = "w-5 h-5" }) => (
+const Icon = ({
+  path,
+  className = "w-5 h-5",
+}: {
+  path: ReactNode;
+  className?: string;
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

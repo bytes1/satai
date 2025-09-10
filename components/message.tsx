@@ -333,36 +333,3 @@ export default function Message({ message }: { message: Message }) {
     </div>
   );
 }
-
-// Demo component
-function DemoMessage() {
-  const sampleMessage: Message = {
-    id: "1",
-    role: "assistant",
-    content:
-      "Here's the current Bitcoin price information you requested. The market is showing strong performance today!",
-    toolInvocations: [
-      {
-        toolCallId: "demo-1",
-        toolName: "cryptoToolPrice",
-        state: "result",
-        result: { price: 67500, symbol: "BTC" },
-      },
-    ],
-  };
-
-  const userMessage: Message = {
-    id: "2",
-    role: "user",
-    content: "Can you show me the current Bitcoin price?",
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6">
-      <div className="max-w-4xl mx-auto space-y-4">
-        <Message message={userMessage} />
-        <Message message={sampleMessage} />
-      </div>
-    </div>
-  );
-}

@@ -10,6 +10,11 @@ import { coingeckoApiKey } from "./config";
  * @returns {Promise<object>} A promise that resolves to the CoinGecko tools.
  */
 export async function getMcpTools() {
+  if (!coingeckoApiKey) {
+    throw new Error(
+      "COINGECKO_API_KEY environment variable is not set in mcp-client."
+    );
+  }
   const mcpClient = await createMcpClient({
     transport: {
       type: "sse",
