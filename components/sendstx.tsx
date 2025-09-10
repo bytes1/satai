@@ -280,9 +280,11 @@ export const Sendstx = ({ address, amount }: CryptosendProps) => {
     setStatus("processing");
 
     try {
+      const MICROSTX = 1_000_000;
+
       const response = await request("stx_transferStx", {
         recipient: address,
-        amount: amount.toString(),
+        amount: (Number(amount) * MICROSTX).toString(), // convert STX → microSTX
         network: "testnet",
       });
 
